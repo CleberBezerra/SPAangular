@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA com Angular</title>
+  </head>
+
+  <body>
+    <mat-toolbar>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>CRB App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div>
+      <spa-mercadorias [valorInicial]="valor"></spa-mercadorias>
+      <button (click)="mudarValor()">Adicionar</button>
+      <button (click)="reiniciarValor()">Reiniciar</button>
+      <button (click)="exibirValor()">Exibir Lista</button>
+      <button (click)="esconderValor()">Esconder Lista</button>
+    </div>
+
+    <table *ngIf="exibeLista">
+      <tr>
+        <th>Produto</th>
+        <th>Código</th>
+        <th>Preço</th>
+      </tr>
+      <tr *ngFor="let mercadoria of listaMercadorias">
+        <td>{{mercadoria.produto}}</td>
+        <td>{{mercadoria.codigo}}</td>
+        <td>{{mercadoria.preco}}</td>
+      </tr>
+    </table>
+  </body>
+</html>
